@@ -1,0 +1,10 @@
+<library>
+  <class name="canvas">
+    <handler on="construct">
+      self.parent.widget = Tkinter.Tk()
+    </handler>
+    <handler on="late">
+      pass
+    </handler>
+  </class>
+</library>

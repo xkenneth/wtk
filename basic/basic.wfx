@@ -1,0 +1,5 @@
+<library>
+  <library library="button"/>
+  <library library="text"/>
+  <library library="view"/>
+</library>

@@ -1,0 +1,21 @@
+<library>
+  <class name="button">
+    <attribute name="text"/>
+    
+    <handler on="construct">
+      parent = self.parent
+      while ( not hasattr(parent,'widget') ):
+          parent = parent.parent
+      
+      self.parent.widget = Tkinter.Button(parent.widget,text=self.parent.text)
+
+      #register the widget for attribute updates
+      self.parent.__wfattrs__['text'].register([self.parent.widget, lambda widget, v: widget.configure(text=v)])
+    </handler>
+
+    <handler on="late">
+      pass
+    </handler>
+
+  </class>
+</library>

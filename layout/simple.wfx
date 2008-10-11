@@ -1,0 +1,28 @@
+<library>
+  <!-- Basic simplelayout -->
+  <class name="simplelayout">
+
+    <attribute name="axis"/>
+
+    <handler on="construct">
+      pass
+    </handler>
+
+    <handler on="init">
+      self.parent.count = 0
+    </handler>
+
+    <handler on="late">
+      #for all the siblings of this node
+      for i in self.parent.parent.child_nodes:
+          #if they have a widget
+          if hasattr(i,'widget'):
+              #set them on the grid
+              if self.parent.axis == u'y':
+                  i.widget.grid(row=self.parent.count,column=0)
+              else:
+                  i.widget.grid(column=self.parent.count,row=0)
+              self.parent.count += 1
+    </handler>
+  </class>
+</library>

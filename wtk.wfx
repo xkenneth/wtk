@@ -1,0 +1,14 @@
+<library>
+  <!--python modules we need-->
+  <import module="Tkinter"/>
+
+  <!--wfx modules in this package -->
+  <library library="base"/>
+  <library library="basic"/>
+  <library library="layout"/>
+
+  <!-- Mapping of the events -->
+  <event name="mousedown" binding="Button-1"/>
+  <!-- Here's the basic canvas, every other tk tag must be inside of this. -->
+
+</library>

@@ -1,0 +1,27 @@
+<library>
+  <!-- Text class, for labels -->
+  <class name="text">
+    <attribute name="text"/>
+    
+    <!-- Setup the text class -->
+    <handler on="construct">
+      #find the next parent up with a widget
+
+      parent = self.parent
+      while ( not hasattr(parent,'widget') ):
+          parent = parent.parent
+      
+      #setup the widget for this tag
+      self.parent.widget = Tkinter.Label(parent.widget,text=self.parent.text)
+      
+      #register the widget for attribute updates
+      self.parent.__wfattrs__['text'].register([self.parent.widget, lambda widget, v: widget.configure(text=v)])
+    </handler>
+    
+    <handler on="destroy">
+      #destroy the widget
+      self.parent.widget.destroy()
+    </handler>
+
+  </class>
+</library>
