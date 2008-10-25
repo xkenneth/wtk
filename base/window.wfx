@@ -2,7 +2,7 @@
   <import module="threading"/>
   <import module="time"/>
   
-  <class name="canvas">
+  <class name="window">
     <handler on="construct">
       #we're going to try and spin off the tk mainloop into a seperate threading
       #class TKThread(threading.Thread):

@@ -1,5 +1,5 @@
 <library>
   <library library="tknode"/>
-  <library library="canvas"/>
+  <library library="window"/>
   <library library="view"/>
 </library>

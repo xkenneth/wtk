@@ -5,13 +5,11 @@
     <handler on="construct">
       parent_widget = wtk.find_parent_widget(this)
       
-      print "A"
       if hasattr(this,'text') and not hasattr(this,'value'):
           text = this.text
           value = this.parent.next_value()
           variable = this.parent.int_var
       
-      print "A"
       if hasattr(this,'text') and hasattr(this,'value'):
           text = this.text
           try:
@@ -21,7 +19,6 @@
               value = this.value
               variable = this.parent.string_var
 
-      print "A"
       if not hasattr(this,'text') and hasattr(this,'value'):
           text = this.value
           value = this.value
