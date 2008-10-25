@@ -1,0 +1,4 @@
+<library>
+  <!-- a file describing the bindings between wildfire event names and native tk events -->
+  <event name="mousedown" binding="Button-1"/>
+</library>

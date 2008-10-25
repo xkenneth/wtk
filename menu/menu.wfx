@@ -1,0 +1,5 @@
+<library>
+  <library library="menubar"/>
+  <library library="cascade"/>
+  <library library="menuitem"/>
+</library>

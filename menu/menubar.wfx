@@ -1,0 +1,15 @@
+<library>
+  <class name="menubar" extends="tknode">
+    <attribute name="text"/>
+    <handler on="construct">
+      parent_widget = wtk.find_parent_widget(this)
+
+      this.menu = Tkinter.Menu(parent_widget)
+    </handler>
+    <handler on="late">
+      parent_widget = wtk.find_parent_widget(this)
+      parent_widget.config(menu=this.menu)
+    </handler>     
+  </class>
+</library>
+

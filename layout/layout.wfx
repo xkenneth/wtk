@@ -1,3 +1,4 @@
 <library>
   <library library="simple"/>
+  <library library="wrap"/>
 </library>

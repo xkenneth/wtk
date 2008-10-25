@@ -1,6 +1,6 @@
 <library>
   <!-- Text class, for labels -->
-  <class name="text" extends="tknode">
+  <class name="label">
     <attribute name="text"/>
     
     <!-- Setup the text class -->
@@ -10,7 +10,7 @@
       parent_widget = wtk.find_parent_widget(this)
       
       #setup the widget for this tag
-      this.widget = Tkinter.Message(parent_widget,text=this.text)
+      this.widget = Tkinter.Label(parent_widget,text=this.text)
       
       #register the widget for attribute updates
       this.__wfattrs__['text'].register([this.widget, lambda widget, v: widget.configure(text=v)])

@@ -1,14 +1,24 @@
 <library>
   <!--python modules we need-->
   <import module="Tkinter"/>
+  
+  <library library="base"/>
 
   <!--wfx modules in this package -->
-  <library library="base"/>
   <library library="basic"/>
   <library library="layout"/>
+  <library library="menu"/>
+  <library library="radio"/>
 
   <!-- Mapping of the events -->
-  <event name="mousedown" binding="Button-1"/>
+  <library library="bindings"/>
   <!-- Here's the basic canvas, every other tk tag must be inside of this. -->
+  
+  <method name="find_parent_widget" args="parent">
+    while ( not hasattr(parent,'widget') ):
+        parent = parent.parent
+
+    return parent.widget
+  </method>
 
 </library>

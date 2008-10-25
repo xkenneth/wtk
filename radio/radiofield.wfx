@@ -1,0 +1,18 @@
+<library>
+  <class name="radiofield" extends="tknode">
+    <handler on="construct">
+      this.count = 0
+      this.int_var = Tkinter.IntVar()
+      this.string_var = Tkinter.StringVar()
+      this.string_var.set('')
+    </handler>
+    <method name="next_value">
+      t = this.count
+      this.count += 1
+      return this.count
+    </method>
+  </class>
+</library>
+  
+      
+      

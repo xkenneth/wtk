@@ -1,10 +1,34 @@
 <library>
+  <import module="threading"/>
+  <import module="time"/>
+  
   <class name="canvas">
     <handler on="construct">
+      #we're going to try and spin off the tk mainloop into a seperate threading
+      #class TKThread(threading.Thread):
+      #    def run(self):
+      #self.master = Tkinter.Tk()
+      #        self.run = False
+      #        while(not self.run):
+      #            pass
+      #
+      #        self.master.mainloop()
+      
+      #t = TKThread()
+      #t.start()
+      
+      #while(not t.isAlive() ):
+      #    pass
+
+      #time.sleep(0.5)
+
       self.parent.widget = Tkinter.Tk()
+      
     </handler>
+
     <handler on="late">
-      pass
+      self.parent.widget.mainloop()
     </handler>
+
   </class>
 </library>

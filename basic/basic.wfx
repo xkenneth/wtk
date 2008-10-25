@@ -1,5 +1,9 @@
 <library>
   <library library="button"/>
   <library library="text"/>
-  <library library="view"/>
+  <library library="label"/>
+  <library library="entry"/>
+  <library library="checkbutton"/>
+  <library library="listbox"/>
+  <library library="listitem"/>
 </library>

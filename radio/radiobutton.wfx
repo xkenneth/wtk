@@ -1,0 +1,40 @@
+<library>
+  <class name="radiobutton" extends="view">
+    <attribute name="text"/>
+    <attribute name="value"/>
+    <handler on="construct">
+      parent_widget = wtk.find_parent_widget(this)
+      
+      print "A"
+      if hasattr(this,'text') and not hasattr(this,'value'):
+          text = this.text
+          value = this.parent.next_value()
+          variable = this.parent.int_var
+      
+      print "A"
+      if hasattr(this,'text') and hasattr(this,'value'):
+          text = this.text
+          try:
+              value = eval(this.value) #for auto type conversion
+              variable = this.int_var
+          except:
+              value = this.value
+              variable = this.parent.string_var
+
+      print "A"
+      if not hasattr(this,'text') and hasattr(this,'value'):
+          text = this.value
+          value = this.value
+          try:
+              value = eval(this.value)
+              variable = this.int_var
+          except:
+              value = this.value
+              variable = this.parent.string_var
+      
+      this.widget = Tkinter.Radiobutton(parent_widget,text=text,variable=variable,value=value)
+
+    </handler>
+  </class>
+</library>
+  

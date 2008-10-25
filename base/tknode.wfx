@@ -1,0 +1,18 @@
+<library>
+  <class name="tknode">
+    <!-- this late handler handles binding the defined handlers to the appropriate widget -->
+    <handler on="init">
+      if hasattr(this,'widget'):
+          this.widget.grid()
+    </handler>
+
+    <handler on="late">
+      <![CDATA[
+      for event in self.doc.events:
+          if hasattr(self.parent,event.native):
+              if hasattr(self.parent,'widget'):
+                  self.parent.widget.bind('<%s>' % event.runtime, getattr(self.parent,event.native)[-1])
+      ]]>
+    </handler>
+  </class>
+</library>

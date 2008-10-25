@@ -1,3 +1,5 @@
 <library>
+  <library library="tknode"/>
   <library library="canvas"/>
+  <library library="view"/>
 </library>

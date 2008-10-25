@@ -1,0 +1,10 @@
+<library>
+  <class name="listbox" extends="tknode">
+    <handler on="construct">
+      parent_widget = wtk.find_parent_widget(this)
+      this.widget = Tkinter.Listbox(parent_widget)
+    </handler>
+  </class>
+</library>
+    
+

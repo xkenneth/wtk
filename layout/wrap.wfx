@@ -1,0 +1,32 @@
+<library>
+  <!-- A basic wrapping layout to make things a little simpler. -->
+  <class name="wraplayout">
+    
+    <!-- the number of items to wrap before making a new row -->
+    <attribute name="count"/>
+    
+    <!-- Doing some init stuff -->
+    <handler on="init">
+      #setting the counts to zero
+      this.row = 0
+      this.column = 0
+    </handler>
+
+    <handler on="late">
+      #for all the siblings of this node
+      for i in this.parent.child_nodes:
+      #if they have a widget
+          if hasattr(i,'widget'):
+              i.widget.grid(row=this.row,column=this.column)
+              this.column += 1
+              if this.column == this.count:
+                  this.column = 0
+                  this.row += 1
+    </handler>
+  </class>
+</library>
+      
+
+  
+  
+	

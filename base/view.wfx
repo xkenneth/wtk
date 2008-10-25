@@ -1,6 +1,6 @@
 <library>		
   <!-- overloading the view class -->
-  <class name="view">
+  <class name="view" extends="tknode">
     <handler on="construct">
       parent = self.parent
       while ( not hasattr(parent,'widget') ):

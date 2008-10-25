@@ -1,0 +1,19 @@
+<library>
+  <class name="checkbutton" extends="tknode">
+    <attribute name="text"/>
+    <attribute name="value"/>
+    
+    <handler on="construct">
+      parent = self.parent
+      while ( not hasattr(parent,'widget') ):
+          parent = parent.parent
+      
+      self.parent.value_widget = Tkinter.IntVar()
+      self.parent.widget = Tkinter.Checkbutton(parent.widget,text=self.parent.text,variable=self.parent.value_widget)
+      
+      #register for attribute updates
+      self.parent.__wfattrs__['text'].register([self.parent.widget, lambda widget, v: widget.configure(text=v)])
+      self.parent.__wfattrs__['value'].register_get([self.parent.value_widget, lambda widget: widget.get()])
+    </handler>
+  </class>
+</library>

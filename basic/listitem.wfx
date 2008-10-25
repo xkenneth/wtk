@@ -1,0 +1,10 @@
+<library>
+  <class name="listitem" extends="tknode">
+    <attribute name="text"/>
+    <handler on="construct">
+      parent_widget = wtk.find_parent_widget(this)
+      parent_widget.insert(Tkinter.END, this.text)
+    </handler>
+  </class>
+</library>
+    
