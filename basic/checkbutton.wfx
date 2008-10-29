@@ -4,16 +4,18 @@
     <attribute name="value"/>
     
     <handler on="construct">
-      parent = self.parent
-      while ( not hasattr(parent,'widget') ):
-          parent = parent.parent
+      parent_widget = wtk.find_parent_widget(this)
       
-      self.parent.value_widget = Tkinter.IntVar()
-      self.parent.widget = Tkinter.Checkbutton(parent.widget,text=self.parent.text,variable=self.parent.value_widget)
+      this.value_widget = Tkinter.IntVar()
+      this.widget = Tkinter.Checkbutton(parent_widget,text=this.text.get(),variable=this.value_widget)
       
-      #register for attribute updates
-      self.parent.__wfattrs__['text'].register([self.parent.widget, lambda widget, v: widget.configure(text=v)])
-      self.parent.__wfattrs__['value'].register_get([self.parent.value_widget, lambda widget: widget.get()])
+      #bind the text of the widget to the value of the text attribute
+      bind_set(this.text, this.widget, lambda widget, v: widget.configure(text=v))
+      
+      #bind the value attribute to the value of the value_widget
+      bind(this.value, this.value_widget, lambda widget: widget.get())
+      bind_set(this.value, this.value_widget, lambda widget, v: widget.set(v))
+      
     </handler>
   </class>
 </library>

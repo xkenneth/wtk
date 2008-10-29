@@ -2,16 +2,16 @@
   <class name="entry" extends="tknode">
     <attribute name="value"/>
     <handler on="construct">
-      parent = self.parent
       
-      while ( not hasattr(parent,'widget') ):
-          parent = parent.parent
+      parent_widget = wtk.find_parent_widget(this)
       
-      self.parent.value_widget = Tkinter.StringVar()
-      self.parent.widget = Tkinter.Entry(parent.widget,textvariable=self.parent.value_widget)
+      this.value_widget = Tkinter.StringVar()
       
-      self.parent.__wfattrs__['value'].register([self.parent.value_widget, lambda widget, v: widget.set(v)])
-      self.parent.__wfattrs__['value'].register_get([self.parent.value_widget, lambda widget: widget.get()])
+      this.widget = Tkinter.Entry(parent_widget,textvariable=this.value_widget)
+      
+      bind_set(this.value, this.value_widget, lambda widget, v: widget.set(v))
+      bind(this.value, this.value_widget, lambda widget: widget.get())
+      
     </handler>
   </class>
 </library>
