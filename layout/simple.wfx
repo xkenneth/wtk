@@ -18,7 +18,7 @@
           #if they have a widget
           if hasattr(i,'widget'):
               #set them on the grid
-              if this.axis.get() == u'y':
+              if this.axis == u'y':
                   i.widget.grid(row=this.count,column=0)
               else:
                   i.widget.grid(column=this.count,row=0)

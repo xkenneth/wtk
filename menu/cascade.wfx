@@ -8,16 +8,16 @@
     <handler on="construct">
       
       #turn tearoff into a value tk can understand
-      if this.tearoff.get() is None:
+      if this.tearoff is None:
           tearoff = 0
-      if this.tearoff.get() is True:
+      if this.tearoff is True:
           tearoff = 1
       
       this.menu = Tkinter.Menu(this.parent.menu,tearoff=tearoff)
 
     </handler>
     <handler on="late">
-      this.parent.menu.add_cascade(label=this.text.get(),menu=this.menu)
+      this.parent.menu.add_cascade(label=this.text,menu=this.menu)
     </handler>     
   </class>
 </library>

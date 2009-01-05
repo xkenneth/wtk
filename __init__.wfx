@@ -11,7 +11,7 @@
   <library library="radio"/>
 
   <!-- Mapping of the events -->
-  <library library="bindings"/>
+  <library library="eventmappings"/>
   <!-- Here's the basic canvas, every other tk tag must be inside of this. -->
   
   <method name="find_parent_widget" args="parent">

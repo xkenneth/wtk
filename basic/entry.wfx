@@ -1,6 +1,6 @@
 <library>
   <class name="entry" extends="tknode">
-    <attribute name="value"/>
+    <attribute name="value" default=""/>
     <handler on="construct">
       
       parent_widget = wtk.find_parent_widget(this)
@@ -9,9 +9,15 @@
       
       this.widget = Tkinter.Entry(parent_widget,textvariable=this.value_widget)
       
-      bind_set(this.value, this.value_widget, lambda widget, v: widget.set(v))
-      bind(this.value, this.value_widget, lambda widget: widget.get())
-      
+      #bind the value widget
+
+      bind(this,'value',lambda obj, v: obj.set(v), this.value_widget, lambda obj: obj.get(),this.value_widget)
     </handler>
+
+    <handler on="keypress">
+      #calling it twice for a reason!
+      this.value = this.value_widget.get()
+    </handler>
+
   </class>
 </library>

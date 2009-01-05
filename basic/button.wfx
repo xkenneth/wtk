@@ -5,10 +5,10 @@
     <handler on="construct">
       parent_widget = wtk.find_parent_widget(this)
       
-      this.widget = Tkinter.Button(parent_widget,text=this.text.get())
+      this.widget = Tkinter.Button(parent_widget,text=this.text)
 
       #register the widget for attribute updates
-      bind(this.text,this.widget,lambda widget, v: widget.configure(text=v))
+      bind(this,'text',lambda obj, v: obj.configure(text=v),this.widget)
     </handler>
     
   </class>

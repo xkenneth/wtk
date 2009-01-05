@@ -10,14 +10,14 @@
       parent_widget = wtk.find_parent_widget(this)
       
       #setup the widget for this tag
-      this.widget = Tkinter.Message(parent_widget,text=this.text.get())
+      this.widget = Tkinter.Message(parent_widget,text=this.text)
       
       #bind the value of the widgets text attribute to the classes text attribute
-      bind_set(this.text, this.widget, lambda widget, v: widget.configure(text=v) )
+
+      bind(this,'text', lambda obj, v: obj.configure(text=v), this.widget)
     </handler>
     
     <handler on="destroy">
-      #destroy the widget
       self.parent.widget.destroy()
     </handler>
 

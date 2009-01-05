@@ -7,14 +7,13 @@
       parent_widget = wtk.find_parent_widget(this)
       
       this.value_widget = Tkinter.IntVar()
-      this.widget = Tkinter.Checkbutton(parent_widget,text=this.text.get(),variable=this.value_widget)
+      this.widget = Tkinter.Checkbutton(parent_widget,text=this.text,variable=this.value_widget)
       
       #bind the text of the widget to the value of the text attribute
-      bind_set(this.text, this.widget, lambda widget, v: widget.configure(text=v))
+      bind(this,'text',lambda obj,v: obj.configure(text=v),this.widget)
       
       #bind the value attribute to the value of the value_widget
-      bind(this.value, this.value_widget, lambda widget: widget.get())
-      bind_set(this.value, this.value_widget, lambda widget, v: widget.set(v))
+      bind(this,'value',lambda obj,v: obj.set(v), this.value_widget, lambda obj: obj.get(),this.value_widget)      
       
     </handler>
   </class>

@@ -19,7 +19,7 @@
           if hasattr(i,'widget'):
               i.widget.grid(row=this.row,column=this.column)
               this.column += 1
-              if this.column == this.count.get():
+              if this.column == this.count:
                   this.column = 0
                   this.row += 1
     </handler>

@@ -1,33 +1,12 @@
 <library>
-  <import module="threading"/>
-  <import module="time"/>
-  
   <class name="window">
     <handler on="construct">
-      #we're going to try and spin off the tk mainloop into a seperate threading
-      #class TKThread(threading.Thread):
-      #    def run(self):
-      #self.master = Tkinter.Tk()
-      #        self.run = False
-      #        while(not self.run):
-      #            pass
-      #
-      #        self.master.mainloop()
-      
-      #t = TKThread()
-      #t.start()
-      
-      #while(not t.isAlive() ):
-      #    pass
-
-      #time.sleep(0.5)
-
-      self.parent.widget = Tkinter.Tk()
-      
+      this.widget = Tkinter.Tk()
     </handler>
 
     <handler on="late">
-      self.parent.widget.mainloop()
+      print "Hitting mainloop..."
+      this.widget.mainloop()
     </handler>
 
   </class>

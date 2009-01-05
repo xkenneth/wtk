@@ -8,10 +8,10 @@
 
     <handler on="late">
       <![CDATA[
-      for event in self.doc.events:
-          if hasattr(self.parent,event.native):
-              if hasattr(self.parent,'widget'):
-                  self.parent.widget.bind('<%s>' % event.runtime, getattr(self.parent,event.native)[-1])
+      for event in doc.events:
+          if hasattr(this,event.native):
+              if hasattr(this,'widget'):
+                  this.widget.bind('<%s>' % event.runtime, getattr(this,event.native)[-1])
       ]]>
     </handler>
   </class>
